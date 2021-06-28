@@ -29,16 +29,25 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container my-5">
+        <div class="row d-flex justify-content-center">
 
-        <textarea id="txtarea" placeholder="Add your text here"></textarea>
-        <div class="container card">
-            <label for="blogTitle "> <b>Title</b></label>
-            <input id="blogTitle" type="text " placeholder="Article Title " required>
-            <button id='add' class="cta-btn ">Publish!</button>
+            <div class="card">
+                <form id="logForm" method="GET" action="home.html">
+                    <h2 class="title "> Log in</h2>
+                    <div class="email-login ">
+                        <label for="email "> <b>Email</b></label>
+                        <input id="email" type="text " placeholder="Enter Email " name="uname " required>
+                        <label for="psw "><b>Password</b></label>
+                        <input id="pswd" type="password " placeholder="Enter Password " name="psw " required>
+                    </div>
+                    <button id='logBtn' class="cta-btn ">Log In</button>
+                    <small>Save Login : <input id="Remember" name="Remember" type="checkbox"></small>
+                    <a class="forget-pass " href="# ">Forgot password?</a>
+                </form>
+            </div>
+
         </div>
-
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js " integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/ " crossorigin="anonymous "></script>
