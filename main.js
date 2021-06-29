@@ -60,6 +60,7 @@ function ReadMore(id) {
     }
 }
 
+
 function expandTextarea(id) {
     document.getElementById(id).addEventListener('keyup', function() {
         this.style.overflow = 'hidden';
@@ -69,7 +70,7 @@ function expandTextarea(id) {
     }, false);
 }
 
-expandTextarea('txtarea');
+expandTextarea('txtcontent');
 
 //Editor Storage
 function submit() {
