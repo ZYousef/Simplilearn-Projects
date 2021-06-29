@@ -139,3 +139,10 @@ textarea {
     width: 96%;
     display: block;
 }
+
+
+/* reader */
+
+#more {
+    display: none;
+}

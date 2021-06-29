@@ -41,6 +41,25 @@ function Recognize() {
 
 }
 
+
+function ReadMore(id) {
+    var btnText = document.getElementById(id);
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+        btnText.parentElement.parentElement.style.width = '300px'
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+        btnText.parentElement.parentElement.style.width = 'fit-content'
+    }
+}
+
 function expandTextarea(id) {
     document.getElementById(id).addEventListener('keyup', function() {
         this.style.overflow = 'hidden';
@@ -51,3 +70,27 @@ function expandTextarea(id) {
 }
 
 expandTextarea('txtarea');
+
+//Editor Storage
+function submit() {
+    let title = document.getElementById('blogTitle').value;
+    let details = document.getElementById('txtcontent').value;
+    let date = new Date();
+    if (title == "" || details == "") {
+        alert(`You have to fill both fields.`);
+        return;
+    }
+    localStorage.setItem("blogTitle", title);
+    localStorage.setItem("txtcontent", details);
+    localStorage.setItem("date", date.toLocaleTimeString() + ',' + date.toDateString());
+    localStorage.setItem("addedFromBlog", 1);
+
+    alert(`Sucessful. Check Home page for "${title}"`)
+    title.value = "";
+    details.value = "";
+}
+
+if (window.location.pathname.split("/").pop() == 'blog.html') {
+    document.getElementById('save').addEventListener('click', submit);
+
+}
