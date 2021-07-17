@@ -1,17 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import InputField from "./components/InputField";
+import TodosList from "./components/TodosList";
+import { deleteAll, persistTodos } from "./redux/action/addTodo.action";
+import { connect } from "react-redux";
+const App = ({ deleteAll, persistTodos }) => {
+  useEffect(() => {
+    persistTodos();
+  }, [persistTodos]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          My TODO App
-        </p>
-      </header>
+      {" "}
+      <img src={logo} className="App-logo" alt="logo" />
+      <InputField />
+      <TodosList />
+      <div>
+        <button class="btn" onClick={deleteAll}>
+          Delete All
+        </button>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  deleteAll: () => dispatch(deleteAll()),
+  persistTodos: () => dispatch(persistTodos()),
+});
+export default connect(null, mapDispatchToProps)(App);
